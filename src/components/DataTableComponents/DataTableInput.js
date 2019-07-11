@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const DataTableInput = ({ value, onChange, label }) => (
   <div className="dataTables_filter">
     <label>
-      {label || "Search"}
+      {label || ""}
       <input
         value={value}
         onChange={onChange}

@@ -4,9 +4,12 @@ import DataTableInput from './DataTableInput';
 
 const DataTableSearch = props => {
   const { handleSearchChange, search, searching, label, barReverse } = props;
+  const style = {
+    display: 'inline-block'
+  }
 
   return (
-    <div className="col-sm-12 col-md-6">
+    <div style={style} className="ml-2">
       {searching && (
         <DataTableInput
           value={search}

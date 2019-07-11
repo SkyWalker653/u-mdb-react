@@ -4,6 +4,7 @@ import DataTableTable from "./DataTableComponents/DataTableTable";
 import DataTableTableScroll from "./DataTableComponents/DataTableTableScroll";
 import DataTableEntries from "./DataTableComponents/DataTableEntries";
 import DataTableSearch from "./DataTableComponents/DataTableSearch";
+import DataTableCustomFields from "./DataTableComponents/DataTableCustomFields";
 import DataTableInfo from "./DataTableComponents/DataTableInfo";
 import DataTablePagination from "./DataTableComponents/DataTablePagination";
 import classnames from "classnames";
@@ -312,6 +313,10 @@ class DataTable extends Component {
       "dataTables_wrapper dt-bootstrap4"
     );
 
+    const style = {
+      textAlign: 'right'
+    }
+
     return (
       <div className={tableClasses}>
         <div className={`row${ barReverse ? ' flex-row-reverse' : ''}`}>
@@ -324,13 +329,18 @@ class DataTable extends Component {
             label={entriesLabel}
             barReverse={barReverse}
           />
-          <DataTableSearch
-            handleSearchChange={this.handleSearchChange}
-            search={search}
-            searching={searching}
-            label={searchLabel}
-            barReverse={barReverse}
-          />
+          <div className="col-sm-12 col-md-6" style={style}>
+            <DataTableSearch
+              handleSearchChange={this.handleSearchChange}
+              search={search}
+              searching={searching}
+              label={searchLabel}
+              barReverse={barReverse}
+            />
+            <DataTableCustomFields>
+              {this.props.children}
+            </DataTableCustomFields>
+          </div>
         </div>
         {!scrollY && !scrollX && (
           <div className="row">
@@ -495,7 +505,7 @@ DataTable.defaultProps = {
   responsiveLg: false,
   responsiveXl: false,
   searching: true,
-  searchLabel: "Search",
+  searchLabel: "",
   scrollX: false,
   scrollY: false,
   sortable: true,
