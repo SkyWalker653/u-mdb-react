@@ -3186,7 +3186,7 @@ var DataTableInput = function DataTableInput(_ref) {
       label = _ref.label;
   return React.createElement("div", {
     className: "dataTables_filter"
-  }, React.createElement("label", null, label || "Search", React.createElement("input", {
+  }, React.createElement("label", null, label || "", React.createElement("input", {
     value: value,
     onChange: onChange,
     type: "search",
@@ -3207,8 +3207,12 @@ var DataTableSearch = function DataTableSearch(props) {
       searching = props.searching,
       label = props.label,
       barReverse = props.barReverse;
+  var style = {
+    display: 'inline-block'
+  };
   return React.createElement("div", {
-    className: "col-sm-12 col-md-6"
+    style: style,
+    className: "ml-2"
   }, searching && React.createElement(DataTableInput, {
     value: search,
     onChange: handleSearchChange,
@@ -3223,6 +3227,16 @@ DataTableSearch.propTypes = {
   search: propTypes.string.isRequired,
   searching: propTypes.bool.isRequired,
   label: propTypes.string
+};
+
+var DataTableCustomFields = function DataTableCustomFields(props) {
+  var style = {
+    display: 'inline-block'
+  };
+  return React.createElement("div", {
+    style: style,
+    className: "ml-2"
+  }, React.createElement("label", null, props.children));
 };
 
 var DataTableInfo = function DataTableInfo(props) {
@@ -3800,6 +3814,9 @@ function (_Component) {
           search = _this$state.search,
           translateScrollHead = _this$state.translateScrollHead;
       var tableClasses = classNames(className && "".concat(className), "dataTables_wrapper dt-bootstrap4");
+      var style = {
+        textAlign: 'right'
+      };
       return React.createElement("div", {
         className: tableClasses
       }, React.createElement("div", {
@@ -3812,13 +3829,16 @@ function (_Component) {
         entriesArr: entriesOptions,
         label: entriesLabel,
         barReverse: barReverse
-      }), React.createElement(DataTableSearch, {
+      }), React.createElement("div", {
+        className: "col-sm-12 col-md-6",
+        style: style
+      }, React.createElement(DataTableSearch, {
         handleSearchChange: this.handleSearchChange,
         search: search,
         searching: searching,
         label: searchLabel,
         barReverse: barReverse
-      })), !scrollY && !scrollX && React.createElement("div", {
+      }), React.createElement(DataTableCustomFields, null, this.props.children))), !scrollY && !scrollX && React.createElement("div", {
         className: "row"
       }, React.createElement(DataTableTable, _extends({
         autoWidth: autoWidth,
@@ -3966,7 +3986,7 @@ DataTable.defaultProps = {
   responsiveLg: false,
   responsiveXl: false,
   searching: true,
-  searchLabel: "Search",
+  searchLabel: "",
   scrollX: false,
   scrollY: false,
   sortable: true,
