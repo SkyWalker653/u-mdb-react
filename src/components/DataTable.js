@@ -488,7 +488,7 @@ DataTable.defaultProps = {
   data: {},
   displayEntries: true,
   entries: 10,
-  entriesLabel: "Show entries",
+  entriesLabel: "",
   entriesOptions: [10, 20, 50, 100],
   exportToCSV: false,
   fixed: false,
