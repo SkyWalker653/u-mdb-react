@@ -8,6 +8,7 @@ import DataTableCustomFields from "./DataTableComponents/DataTableCustomFields";
 import DataTableInfo from "./DataTableComponents/DataTableInfo";
 import DataTablePagination from "./DataTableComponents/DataTablePagination";
 import classnames from "classnames";
+import './DataTable.css'
 
 class DataTable extends Component {
   constructor(props) {
