@@ -1,6 +1,6 @@
 {
-  "name": "mdbreact",
-  "version": "4.18.0",
+  "name": "u-mdbreact",
+  "version": "1.0.1",
   "author": "MDBootstrap",
   "repository": "https://git.mdbootstrap.com/mdb/react/re-pro",
   "main": "dist/mdbreact.js",

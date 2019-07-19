@@ -8,6 +8,7 @@ import DataTableCustomFields from "./DataTableComponents/DataTableCustomFields";
 import DataTableInfo from "./DataTableComponents/DataTableInfo";
 import DataTablePagination from "./DataTableComponents/DataTablePagination";
 import classnames from "classnames";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 import './DataTable.css'
 
 class DataTable extends Component {
